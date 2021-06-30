@@ -7,9 +7,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ## Run using Docker
+- pre-requisite : Docker engine should be installed on the machine
 - docker-compose up -> to start the application
 - docker-compose down -> to stop the application
-- application will be server at http://localhost:8090
+- application will be served at http://localhost:8090
 
 ### `yarn start`
 
