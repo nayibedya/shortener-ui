@@ -1,16 +1,18 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
 import TextArea from '../../components/TextArea';
 import Description from '../../components/Description';
+import { actions as UrlShortnerAction } from '../../data/UrlShortener';
 
 
-
-function UrlShortner() {
+function UrlShortner(props) {
     const [displayDesc, setDisplayDesc] = useState(false);
     const [value, setValue] = useState('');
 
     const onSearch = (value) => {
         setValue(value);
         setDisplayDesc(true);
+        props.dispatch(UrlShortnerAction.fetchShortUrl(value))
     }
 
     return (
@@ -25,4 +27,10 @@ function UrlShortner() {
     )
 }
 
-export default UrlShortner;
+const mapStateToProps = (state) => {
+    return {
+        UrlShortnerData: state.UrlShortener
+    }
+}
+
+export default connect (mapStateToProps)(UrlShortner);

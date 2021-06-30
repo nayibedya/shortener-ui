@@ -4,10 +4,10 @@ import logger from 'redux-logger';
 import rootReduce from './rootReducer'
 import rootSaga from './rootSaga';
 
-function configureStore() {
+export function configureStore() {
     const sagaMiddleware = createSagaMiddleware();
     const middleWare = [sagaMiddleware];
-    if(process.env.NODE_ENV === 'developement') {
+    if(process.env.NODE_ENV === 'development') {
         middleWare.push(logger);
     }
     const store = createStore(rootReduce, applyMiddleware(...middleWare));
