@@ -1,8 +1,8 @@
-
+import Table from '../../components/Table'
 
 function List () {
     return(
-        <h1>Page 2</h1>
+        <Table />
     )
 }
 
