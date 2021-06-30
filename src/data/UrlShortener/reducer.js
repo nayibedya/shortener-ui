@@ -24,7 +24,8 @@ export default function ApiReducer(state=INITIAL_STATE, action) {
         case types.GET_SHORT_URL_FAILURE:
             return {
                 ...state,
-                error: action.payload
+                error: action.payload,
+                loading: false
             }
         default: return state;
     }

@@ -4,3 +4,7 @@
   color: #000;
   min-width: 1000px;
 }
+
+.ant-descriptions-item-label{
+  font-weight: 500 !important;
+}

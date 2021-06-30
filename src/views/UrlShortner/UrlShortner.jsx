@@ -9,19 +9,20 @@ function UrlShortner(props) {
     const [displayDesc, setDisplayDesc] = useState(false);
     const [value, setValue] = useState('');
 
-    const onSearch = (value) => {
+    const onSearch = async (value) => {
         setValue(value);
         setDisplayDesc(true);
         props.dispatch(UrlShortnerAction.fetchShortUrl(value))
     }
 
+
     return (
         <div>
-            <TextArea onSearch={onSearch}/>
+            <TextArea onSearch={onSearch} loading={props.loading}/>
             <br />
             <br />
             <br />
-            {displayDesc ? <Description textAreaValue={value} /> : <div></div>}
+            {displayDesc ? <Description textAreaValue={value} shortUrl={props.shortUrl} /> : <div></div>}
         </div>
 
     )
@@ -29,7 +30,9 @@ function UrlShortner(props) {
 
 const mapStateToProps = (state) => {
     return {
-        UrlShortnerData: state.UrlShortener
+        shortUrl: state.UrlShortener.shortUrl,
+        error: state.UrlShortener.error,
+        loading: state.UrlShortener.loading
     }
 }
 
