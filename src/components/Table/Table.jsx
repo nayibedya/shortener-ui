@@ -1,5 +1,7 @@
 import { Table as AntdTable} from 'antd';
 
+import Config from '../../Utils/Config';
+
 const columns = [
     {
         title: 'Short Url',
@@ -19,25 +21,24 @@ const columns = [
     },
 ]
 
-const dataSource = [
-    {
-        key: '1',
-        shortUrl: 'http://localhost:8085/30NLFY',
-        actualUrl: 'http://www.google.com',
-        count: 3,
-    },
-    {
-        key: '2',
-        shortUrl: 'http://localhost:8085/30NLTR',
-        actualUrl: 'http://www.facebook.com',
-        count: 30,
-    },
-];
-
 function Table (props) {
-
+    
+    let rowData = [];
+        let obj = {};
+        if(props.data){
+            props.data.map((item, index) => {
+                obj = {
+                    key: index,
+                    shortUrl: `${Config.getHostName()}/${item.shortenerKey}`,
+                    actualUrl: item.actualUrl,
+                    count: item.counter
+                }
+                rowData.push(obj);
+            });
+        }
+console.log(props.data);
     return (
-        <AntdTable dataSource={dataSource} columns={columns} />
+        <AntdTable dataSource={rowData} columns={columns} />
     );
 }
 

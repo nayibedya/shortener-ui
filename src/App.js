@@ -1,4 +1,5 @@
 import "./App.css";
+import { useEffect } from 'react';
 import { Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createBrowserHistory } from "history";
@@ -8,6 +9,7 @@ import RoutePath from './routers/RoutePath';
 const history = createBrowserHistory();
 
 function App() {
+  useEffect(() => { history.push('/')});
   return (
     <div className="App">
       <Provider store={store}>
