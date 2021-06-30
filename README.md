@@ -6,6 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+## Run using Docker
+- docker-compose up -> to start the application
+- docker-compose down -> to stop the application
+- application will be server at http://localhost:8090
+
 ### `yarn start`
 
 Runs the app in the development mode.\
@@ -71,5 +76,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-## Run using DOcker
-expose port 8090
