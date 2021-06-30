@@ -1,0 +1,7 @@
+.main-layout__page-content {
+    padding: 1.5rem;
+}
+
+.main-layout__page-sider {
+    height: 100vh !important;
+}

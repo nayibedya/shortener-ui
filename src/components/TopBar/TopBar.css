@@ -1,0 +1,12 @@
+.top-bar {
+    padding: 0 2rem !important;
+    display: flex  !important;
+    align-items: center  !important;
+}
+
+.top-bar__app-name {
+    width: fit-content;
+    height: 100%;
+    font-size: 1.2rem;
+    margin-right: auto;
+}
