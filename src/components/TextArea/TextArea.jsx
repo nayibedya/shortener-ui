@@ -2,12 +2,15 @@ import { Input } from 'antd';
 import { useState } from 'react';
 const { Search } = Input;
 
-function TextArea () {
+function TextArea (props) {
     const [loading, setLoading] = useState(false);
 
-    function onSearch (e) {
+    function onSearch (value, event) {
         setLoading(true)
         setTimeout(function(){ setLoading(false) }, 3000);
+        if(props.onSearch){
+            props.onSearch(value)
+        }
     }
 
     return (
