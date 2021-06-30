@@ -7,17 +7,22 @@ const columns = [
         title: 'Short Url',
         dataIndex: 'shortUrl',
         key: 'shortUrl',
-        render: text => <a href={text} target="_blank" rel='noreferrer'>{text}</a>,
+        width: 300,
+        ellipsis: true
     },
     {
         title: 'Actual Url',
         dataIndex: 'actualUrl',
         key: 'actualUrl',
+        width: 600,
+        ellipsis: true
     },
     {
         title: 'Count',
         dataIndex: 'count',
         key: 'count',
+        width: 100,
+        align: 'center'
     },
 ]
 
@@ -36,9 +41,9 @@ function Table (props) {
                 rowData.push(obj);
             });
         }
-console.log(props.data);
+
     return (
-        <AntdTable dataSource={rowData} columns={columns} />
+        <AntdTable  dataSource={rowData} columns={columns} />
     );
 }
 

@@ -1,15 +1,18 @@
 import { call , put, takeLatest } from 'redux-saga/effects';
 import { GET_SHORT_URL } from './types';
-import { getRequest } from '../../services/HttpServices';
+import { postRequest } from '../../services/HttpServices';
 import * as action from './action';
 import { createUrl } from '../../Utils/CommonUtils';
 
 
 export function* fetchShortUrl(longUrl) {
     try {
-        const endPoint = `generate?url=${longUrl.url}`;
+        const endPoint = 'generate';
         const url = createUrl(endPoint);
-        const response = yield call(getRequest, url);
+        const body = {
+            url: longUrl.url
+        }
+        const response = yield call(postRequest, url, body);
         yield put(action.fetchShortUrlSuccess(response))
     }
     catch (error) {
